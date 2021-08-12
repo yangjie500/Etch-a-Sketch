@@ -1,0 +1,146 @@
+:root {
+    box-sizing: border-box;
+    font-size: calc(1vw + 1em);
+    height: 100vh;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: monospace;
+    font-family: 'Patrick Hand', cursive;
+    background-size: 400% 400%;
+    background-image: repeating-linear-gradient(135deg, rgb(243, 73, 50) 0%, 
+                                                        rgb(255, 151, 46) 25%,
+                                                        rgb(203, 206, 41) 50%,
+                                                        rgb(102, 211, 39) 75%,
+                                                        rgb(46, 255, 235) 100%);
+    animation: background-moving 12s ease-in infinite;
+}
+
+@keyframes background-moving {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+}
+
+h1 span {
+    color: rgb(37, 26, 26);
+    display: inline-block;
+    animation: up-and-down 10s ease-in-out infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+@keyframes up-and-down {
+    0% {
+        transform: translateY(0px);
+    }
+
+    5% {
+        transform: translateY(-25px);
+    }
+
+    6%, 100% {
+        transform: translateY(0px);
+    }
+}
+
+.container__btns {
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn {
+    padding: 1em .7em;
+    
+}
+
+/*Individuals button*/
+.to-black,
+.to-rainbow,
+.clear {
+    padding: 0.5em 1em;
+}
+
+input[type="color"] {  
+    height: 2.35em;
+    width: 4em;
+    position: relative;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 30px 0 0;
+}
+
+input[type="color"]::after {
+    position: absolute;
+    content: "Pick ME";
+    top: 0;
+    left: 10%;
+    right: 10%;
+    text-align: center;
+}
+
+input[type="range"] {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    outline: none;
+    border-radius: 20px;
+    width: 75%;
+    height:0.4em;
+    box-shadow: 3px 3px 6px #909090;
+    background-color: #1f1f1f;
+    margin-top: 1em;
+    
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    cursor: pointer;
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    background-color: #1f1f1f;
+    border-radius: 50%;
+    position:relative;
+    border: 1px solid white;
+}
+
+main {
+    margin-top: 2em;
+    max-width: 100%;
+    min-height: 22em;;
+    background-color: rgb(156, 124, 124);
+}
+.grid-container {
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+
+
+
