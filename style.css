@@ -128,17 +128,27 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 main {
-    margin-top: 2em;
-    max-width: 100%;
-    min-height: 22em;;
-    background-color: rgb(156, 124, 124);
+    margin-top: 2.5em;
+    height: 23em;
 }
 .grid-container {
     margin: 0 auto;
-    width: 50%;
-    height: 50%;
+    width: 534px;
+    height:  525px;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: 3px solid black;
+    grid-gap: .1em;
+}
+
+.grid-child {
+    background-color: white;
+}
+
+/*JavaScript to be added Class*/
+.black {
+    background-color: black;
 }
 
 
