@@ -12,8 +12,14 @@ function getSliderValue(e) {
     return e.target.value;
 }
 
-function getColorHex(e) {
-    return e.target.value;
+function changeColorHex(e) {
+    const hexCode = e.target.value;
+    const gridChildren = document.querySelectorAll('.grid-child');
+    for (const i of gridChildren) {
+        i.addEventListener('mouseover', function(e) {
+            e.target.style.backgroundColor = hexCode;
+        })
+    }
 }
 
 function updateGridCss(gridContainer, dim) {
@@ -55,7 +61,7 @@ function pickOneMode(e) {
     if (className === 'to-black') {
         for (const i of gridChildren) {
             i.addEventListener('mouseover', function(e) {
-            e.target.classList.add('black');
+            e.target.style.backgroundColor = `#000`;
             });
         };
 
@@ -69,26 +75,32 @@ function pickOneMode(e) {
     } else {
         for (const i of gridChildren) {
             i.addEventListener('mouseover', function(e) {
-                e.target.classList.remove('black');
-                e.target.style.backgroundColor = `#fff`;a
+                e.target.style.backgroundColor = `#fff`;
             })
         }
     }
+}
+
+function displaySliderNumber(e) {
+    const display = document.querySelector('.grid-number-display');
+    display.textContent = `${e.target.value} x ${e.target.value}`;
+    //display.style.left = 
+    //console.log(display.style.left);
 }
 
 
 function sketch () {
     const slider = document.querySelector(`input[type='range']`);
     const colorPicker = document.querySelector(`input[type='color']`);
-    const gridChildren = document.querySelectorAll('.grid-child');
     const buttons = document.querySelectorAll("button");
-    
+   
+    slider.addEventListener('input', displaySliderNumber);
     slider.addEventListener('change', makeGrid);
-    colorPicker.addEventListener('input', getColorHex);
+    colorPicker.addEventListener('input', changeColorHex);
     for (const i of buttons) {
         i.addEventListener('click', pickOneMode);
     }
-
+    
 
 
 }

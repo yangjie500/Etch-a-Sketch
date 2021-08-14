@@ -39,6 +39,7 @@ body {
 h1 {
     font-family: 'Permanent Marker', cursive;
     text-align: center;
+    margin-bottom: 0.3em;
 }
 
 h1 span {
@@ -78,12 +79,59 @@ h1 span {
 .to-rainbow,
 .clear {
     padding: 0.5em 1em;
+    border: 2px solid black;
+    cursor: pointer;
+    position: relative;
+}
+
+.to-black:hover,
+.to-rainbow:hover,
+.clear:hover,
+input[type="color"]:hover {
+    animation: shake 0.1s infinite alternate;
+}
+
+.to-black:hover::after,
+.to-rainbow:hover::after {
+    display: inline-block;
+    content: "AHH YES!!! PICK ME";
+    position: absolute;
+    width: 80px;
+    border-radius: 20px;
+    background-color: white;
+    top: -40px;
+    right: -35px;
+    font-size: 26px;
+}
+
+.clear:hover::after {
+    display: inline-block;
+    content: "ME!!!! CLEAN CLEAN ";
+    position: absolute;
+    width: 80px;
+    border-radius: 20px;
+    background-color: white;
+    top: -40px;
+    right: -35px;
+    font-size: 26px;
+}
+
+@keyframes shake {
+    0% {
+        transform: skewY(-2deg);
+    }
+
+    100% {
+        transform: skewY(2deg);
+    }
 }
 
 input[type="color"] {  
     height: 2.35em;
     width: 4em;
     position: relative;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -99,6 +147,7 @@ input[type="color"]::after {
     text-align: center;
 }
 
+
 input[type="range"] {
     display: block;
     position: relative;
@@ -112,7 +161,7 @@ input[type="range"] {
     height:0.4em;
     box-shadow: 3px 3px 6px #909090;
     background-color: #1f1f1f;
-    margin-top: 1em;
+    margin-top: 0.7em;
     
 }
 
@@ -127,8 +176,22 @@ input[type="range"]::-webkit-slider-thumb {
     border: 1px solid white;
 }
 
+.grid-number {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 78%;
+}
+
+.grid-number-display {
+    margin-top: 0.4em;
+    text-align: center;
+}
+
+
+
 main {
-    margin-top: 2.5em;
+    margin-top: 1.5em;
     height: 23em;
 }
 .grid-container {
@@ -139,17 +202,30 @@ main {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     border: 3px solid black;
-    grid-gap: .1em;
+    perspective: 500px;
+    box-shadow: 10px 10px 1px black;
+    perspective: 50px;
+    animation: floating 3s infinite alternate ;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(-10px) skewX(-1deg);
+
+    }
+
+    
+    100% {
+        transform: translateY(0px) skewY(1deg);
+    }
 }
 
 .grid-child {
     background-color: white;
+
 }
 
-/*JavaScript to be added Class*/
-.black {
-    background-color: black;
-}
+
 
 
 
