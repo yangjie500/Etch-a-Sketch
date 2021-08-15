@@ -72,11 +72,15 @@ function pickOneMode(e) {
                 e.target.style.backgroundColor = `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`
             })
         };
-    } else {
+    } else if (className === 'erasure') {
         for (const i of gridChildren) {
             i.addEventListener('mouseover', function(e) {
                 e.target.style.backgroundColor = `#fff`;
             })
+        }
+    } else {
+        for (const i of gridChildren) {
+            i.style.backgroundColor = 'white';
         }
     }
 }

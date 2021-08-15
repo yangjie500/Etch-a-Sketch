@@ -74,10 +74,13 @@ h1 span {
     
 }
 
+
+
 /*Individuals button*/
 .to-black,
 .to-rainbow,
-.clear {
+.clear,
+.erasure {
     padding: 0.5em 1em;
     border: 2px solid black;
     cursor: pointer;
@@ -87,6 +90,7 @@ h1 span {
 .to-black:hover,
 .to-rainbow:hover,
 .clear:hover,
+.erasure:hover,
 input[type="color"]:hover {
     animation: shake 0.1s infinite alternate;
 }
@@ -104,7 +108,7 @@ input[type="color"]:hover {
     font-size: 26px;
 }
 
-.clear:hover::after {
+.erasure:hover::after {
     display: inline-block;
     content: "ME!!!! CLEAN CLEAN ";
     position: absolute;
@@ -225,8 +229,71 @@ main {
 
 }
 
+@media (min-width: 720px) {
+
+    
+    .main-container-large {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        max-width: 1080px;
+        margin: 0 auto;
+        grid-gap: 1em;
+    }
+
+    .container__btns {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        
+        
+    }
+
+    .btn {
+        padding: 0;
+    }
+
+    .to-black,
+    .to-rainbow,
+    .clear,
+    .erasure {
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    }
+    
+    .clear {
+        border-bottom: 2px solid black;
+    }
+
+    .container__btns .btn:nth-child(3) {
+        border: 2px solid black;  
+        width: 100%;
+        bottom: -60%;
+        left: 32%;
+        position: absolute;
+        border: none;
+        cursor: pointer;   
+    }
 
 
+    .container-slider {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    main {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+    }
+}
 
 
 
